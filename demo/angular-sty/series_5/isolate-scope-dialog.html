@@ -1,0 +1,63 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+    <!-- from http://docs.angularjs.org/guide/directive -->
+
+    <div id="main">
+        <button ng-click="show=true">show</button>
+        <dialog title="Hello {{username}}."
+            visible="show"
+            on-cancel="show = false"
+            on-ok="show = false; doSomething()">
+            Body goes here: {{username}} is {{title}}.
+        </dialog>
+    </div>
+
+    <script type="text/ng-template" id="dialog_tpl">
+        <div ng-show="visible">
+            <h3>{{title}}</h3>
+            <div class="body" ng-transclude></div>
+            <div class="footer">
+                <button ng-click="onOk()">Save changes</button>
+                <button ng-click="onCancel()">Close</button>
+            </div>
+        </div>
+    </script>
+
+    <script>
+        angular.module('app', []).directive('dialog', ['$timeout', function ($timeout) {
+            return {
+                restrict: 'E',
+                scope: {
+                    title: '@', // the title uses the data-binding from the parent scope
+                    onOk: '&', // create a delegate onOk function
+                    onCancel: '&', // create a delegate onCancel function
+                    visible: '=' // set up visible to accept data-binding
+                },
+                transclude: true,
+                replace: true,
+                //template: document.querySelector('#dialog_tpl').innerHTML,
+                templateUrl: 'dialog_tpl',
+                controller: ['$scope', '$element', '$attrs', '$transclude',
+                function ($scope, $element, $attrs, $transclude) {
+                    $scope.$watch('visible', function (newData, oldData){
+                        console.log(newData)
+                    })
+                }],
+                link: function (scope, element, attrs) {
+                    console.log(scope);
+                }
+            }
+        }]).controller('MainCtrl', function ($scope, $log) {
+            $scope.username = 'lucy';
+            $scope.doSomething = function () {
+                alert('do sth?');
+            }
+        })
+    </script>
+</body>
+</html>

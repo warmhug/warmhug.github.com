@@ -1,0 +1,82 @@
+<!doctype html>
+<html ng-app="plunker">
+<head>
+    <script src="../lib/angular.js"></script>
+</head>
+<body ng-view>
+    
+    <script>
+
+        /*
+            from：http://plnkr.co/edit/Z7dWVNA9P44Q72sLiPjW?p=preview
+
+            
+            有序请求：即：某个请求的发起，需要另外的请求结果。
+        */
+
+        var app = angular.module('plunker', []);
+
+        app.config(function ($routeProvider) {
+            $routeProvider
+              .when('/', {
+                  controller: 'MainCtrl',
+                  template: '<div>From MyService:<pre>{{data | json}}</pre></div>',
+                  resolve: {
+                      'MyOtherServiceData': function (MyOtherService) {
+                          return MyOtherService.promise;
+                      }
+                  }
+              })
+        })
+
+        app.controller('MainCtrl', function ($scope, MyService, MyOtherService) {
+            console.log('Promise is now resolved: ' + MyService.doStuff(), MyOtherService.doOtherStuff());
+            $scope.data = MyService.doStuff();
+        });
+
+        app.service('MyService', function ($http) {
+            var myData = null;
+            var promise = $http.get('./json/user.json').success(function (data) {
+                myData = data;
+            });
+            return {
+                promise: promise,
+                doStuff: function () {
+                    return myData;
+                }
+            };
+        });
+
+        app.service('MyOtherService', function ($http, MyService) {
+            var otherData = null;
+            console.log("Not resloved yet: " + MyService.doStuff());
+
+            var promise2 = $http.get('./json/phones.json').success(function (data) {
+                otherData = data;
+            });
+
+            //if MyOtherService depends on MyService it should not resolve before MyService 
+            //you can chain promises  ?
+            var chainedPromise = MyService.promise.then(function () {
+                //do init stuff that depends on MyService (if any)
+                console.log("Resolved: " + MyService.doStuff());
+
+                return promise2;
+            });
+
+            return {
+                //chainedPromise will not get resolved until promise2 and MyService.promise are resolved
+                promise: chainedPromise,
+                doOtherStuff: function () {
+                    return otherData;
+                }
+            };
+        });
+
+
+
+
+
+    </script>
+</body>
+</html>

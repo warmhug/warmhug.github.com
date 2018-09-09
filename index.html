@@ -1,0 +1,49 @@
+---
+layout: default
+title: warmhug
+---
+
+<style>
+.recent-posts {
+  padding-left: 10px; line-height: 25px; padding-left: 0;margin-right: 70px;
+}
+.category {
+  position: absolute;
+  top: 40px;
+  right: 0;
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 20px;
+}
+.category h3{
+  margin-bottom: 10px;
+}
+.category li a{
+  text-align: center;
+}
+</style>
+
+<ul class="recent-posts list-unstyle">
+  {% for post in site.posts limit:10 %}
+  <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+  {% endfor %}
+  <li><a href="archives.html">...</a></li>
+</ul>
+
+<div class="category" style="border: none;-webkit-overflow-scrolling: touch;">
+  <h3>类目</h3>
+  <ul class="list-unstyle">
+    {% for tag in site.tags %}
+    <li><a href='/tags.html#{{ tag[0] | escape }}'>{{ tag[0] }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
+
+<pre style="margin-top: 20px;">
+  I hear and I forget.  I see and I remember.  I do and I understand.
+
+  Love ends when you stop caring.
+  Friendship ends when you stop sharing.
+  Life stops when you stop dreaming.
+  Hope ends when you stop believing.
+</pre>

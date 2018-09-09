@@ -1,0 +1,138 @@
+<!doctype html>
+<html ng-app="phonecat">
+<head>
+	<script src="../lib/angular.js"></script>
+</head>
+<body>
+
+    <div class="butter-bar"></div>
+    <div ng-view></div>
+	
+    <script>
+
+        /*
+            此示例源自于：http://stackoverflow.com/questions/11972026/delaying-angularjs-route-change-until-model-loaded-to-prevent-flicker
+
+            在官方tutorial  http://docs.angularjs.org/tutorial/step_07 的基础上，做了些扩展
+
+            参考api: 
+                http://code.angularjs.org/1.0.7/docs/api/ng.$route
+                http://code.angularjs.org/1.0.7/docs/api/ng.$routeProvider
+        */
+
+
+        angular.module('phonecat', ['phonecatFilters', 'phonecatServices', 'phonecatDirectives']).
+          config(['$routeProvider', function ($routeProvider) {
+              $routeProvider.
+                  when('/phones', { templateUrl: 'partials/phone-list.html', controller: PhoneListCtrl, resolve: PhoneListCtrl.resolve }).
+                  when('/phones/:phoneId', { templateUrl: 'partials/phone-detail.html', controller: PhoneDetailCtrl, resolve: PhoneDetailCtrl.resolve }).
+                  otherwise({ redirectTo: '/phones' });
+          }]);
+
+
+
+        /* Controllers */
+
+        function PhoneListCtrl($scope, phones) {
+            $scope.phones = phones;
+            $scope.orderProp = 'age';
+        }
+        PhoneListCtrl.resolve = {
+            phones: function (Phone) {
+                return Phone.query();
+            },
+            delay: function ($q, $timeout) {
+                var delay = $q.defer();
+                $timeout(delay.resolve, 1000);
+                return delay.promise;
+            }
+        }
+        //PhoneListCtrl.$inject = ['$scope', 'Phone'];
+
+        function PhoneDetailCtrl($scope, phone) {
+            $scope.phone = phone;
+            $scope.mainImageUrl = phone.images[0];
+
+            $scope.setImage = function (imageUrl) {
+                $scope.mainImageUrl = imageUrl;
+            }
+        }
+        PhoneDetailCtrl.resolve = {
+            phone: function ($route, Phone) {
+                // We have to read $route.current.params instead of $routeParams.
+                // $routeParams only updates on succesful transition so it still contains
+                // the old data.
+                return Phone.get($route.current.params.phoneId);
+            },
+            delay: function ($q, $timeout) {
+                var delay = $q.defer();
+                $timeout(delay.resolve, 1000);
+                return delay.promise;
+            }
+        };
+        //PhoneDetailCtrl.$inject = ['$scope', '$routeParams', 'Phone'];
+
+
+
+        /* Services */
+        function makeArray(Type) {
+            return function (response) {
+                var list = [];
+                angular.forEach(response.data, function (data) {
+                    list.push(new Type(data));
+                });
+                return list;
+            }
+        }
+        function instantiate(Type) {
+            return function (response) {
+                return new Type(response.data);
+            }
+        }
+        angular.module('phonecatServices', []).
+          factory('Phone', function ($http) {
+              var Phone = function (data) {
+                  angular.copy(data, this);
+              };
+              Phone.query = function () {
+                  return $http.get('json/phones.json').then(makeArray(Phone));
+              }
+              Phone.get = function (id) {
+                  return $http.get('json/' + id + '.json').then(instantiate(Phone));
+              }
+              // Put other business logic on Phone here
+              return Phone;
+          });
+
+
+        /* Directives */
+        var directive = {};
+        directive.butterBar = function ($rootScope) {
+            return {
+                restrict: 'C',
+                link: function (scope, element) {
+                    $rootScope.$on('$routeChangeStart', function () {
+                        element.addClass('show');
+                        element.text('Loading...');
+                    });
+                    $rootScope.$on('$routeChangeSuccess', function () {
+                        element.removeClass('show');
+                        element.text('');
+                    });
+                }
+            };
+        };
+        angular.module('phonecatDirectives', []).directive(directive);
+
+
+
+        /* Filters */
+        angular.module('phonecatFilters', []).filter('checkmark', function () {
+            return function (input) {
+                return input ? '\u2713' : '\u2718';
+            };
+        });
+
+    </script>
+</body>
+</html>

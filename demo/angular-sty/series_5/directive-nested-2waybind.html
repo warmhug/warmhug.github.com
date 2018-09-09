@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="../lib/jquery-1.9.1.js"></script>
+	<script src="http://cdn.staticfile.org/angular.js/1.2.16/angular.js"></script>
+</head>
+<body ng-controller="MainCtrl">
+
+    <!-- 不嵌套 -->
+    <test name="user.name" prim="prim" things="things"></test>
+    
+    <!-- directive嵌套 -->
+    <div wraper>
+        <test name="user.name" prim="prim" things="things" get-name="prim = 'yyy'"></test>
+    </div>
+	
+    <script>
+        angular.module('app', []).directive('wraper', ['$timeout', function ($timeout) {
+            return {
+                restrict: 'ECMA',
+                transclude: true,
+                replace: true,
+                template: '<div class="wrapper" ng-transclude></div>',
+                link: function (scope, element, attrs) {
+                    
+                }
+            }
+        }]).directive('test', ['$timeout', function ($timeout) {
+            return {
+                restrict: 'E',
+                scope: {
+                    name: '=',
+                    prim: '=',
+                    getName: '&',
+                    things: '='
+                },
+                transclude: true,
+                replace: true,
+                template: '<ul><li ng-repeat="thing in things" ng-click="getName(\'nnn\')">{{thing}}</li></ul>',
+                link: function (scope, element, attrs) {
+
+                    var fire = function () {
+                        scope.$apply(function () {  //看看去掉$apply的不同？
+                            scope.things.splice(0, 0, 'xxxxxxxx');
+                            scope.name = 'yyy' + Math.random();
+                            scope.prim = 'prim' + Math.random();
+                        })
+                    }
+                    // 有第三方库操作时，使用$apply，恢复‘双向绑定’
+                    element.on('click', 'li', fire);
+
+                    scope.getName = function (name) {
+                        console.log(name);
+                    }
+                }
+            }
+        }]).controller('MainCtrl', function ($scope, $log) {
+
+            $scope.things = ['one', 'two', 'three'];
+            $scope.$watch('things', function (value, old) {
+                //console.log(value, old);
+            }, true);
+            
+            $scope.user = { name: 'xxx' };
+            $scope.$watch('user', function (value, old) {
+                console.log(value, old);
+            }, true);
+
+            $scope.prim = 'xxx';   //对比user，此处使用primitives绑定，即js的原始类型，破坏了双向绑定
+            $scope.$watch('prim', function (value, old) {
+                console.log(value, old);
+            });
+
+            // 相关文章
+            // http://stackoverflow.com/questions/15719558/isolated-scope-with-simple-angularjs-nested-directive
+            // https://github.com/angular/angular.js/wiki/Understanding-Scopes
+
+        })
+    </script>
+</body>
+</html>

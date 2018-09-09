@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>manual-bootstrap</title>
+    <script src="http://cdn.staticfile.org/angular.js/1.2.16/angular.min.js"></script>
+</head>
+<body>
+    <!-- vm file1 -->
+    <div id="block1" ng-controller="Ctrl">{{ data }}</div>
+    <script>
+        angular.module('module', []).factory('dataStore', function () {
+            return 'jack1';
+        });
+        angular.module('app', ['module']).controller('Ctrl', ['$scope', 'dataStore', function (scope, dataStore) {
+            scope.data = dataStore;
+        }]);
+        angular.element(document).ready(function () {
+            //在block1 范围启动
+            angular.bootstrap(document.getElementById('block1'), ['app']);
+        });
+    </script>
+
+    <!-- vm file2 -->
+    <div id="block2" ng-controller="Ctrl">{{ data }}</div>
+    <script>
+        angular.module('module1', []).factory('dataStore', function () {
+            return 'jack2';
+        });
+        angular.module('app1', ['module1']).controller('Ctrl', ['$scope', 'dataStore', function (scope, dataStore) {
+            scope.data = dataStore;
+        }]);
+        angular.element(document).ready(function () {
+            //在block1 范围启动
+            angular.bootstrap(document.getElementById('block2'), ['app1']);
+        });
+    </script>
+</body>
+</html>
