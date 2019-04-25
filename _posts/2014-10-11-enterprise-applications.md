@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "企业应用"
-tags: [js, product]
+tags: [js]
 author_name: warmhug
 ---
 

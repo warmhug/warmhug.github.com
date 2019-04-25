@@ -3,7 +3,7 @@ layout: post
 title: "技术很重要，技术不重要"
 tags: [other]
 author_name: warmhug
-published: false
+published: true
 ---
 
 真正热爱技术的人，如果能在搞技术的许多年里，一直打心底地认为技术很重要，认为技术第一，那恐怕是极少数非常幸运的人。大多数人搞搞技术后，应该会要认识到“技术不重要”的事实。
