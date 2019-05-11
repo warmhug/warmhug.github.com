@@ -11,28 +11,67 @@
   <meta name="apple-touch-fullscreen" content="yes" />
   <meta name="format-detection" content="telephone=no" />
   <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/rmsportal/SAxyOSLbjwTNKEabnlhX.css">
+  <link rel="stylesheet" href="https://ossgw.alicdn.com/homeai-inner/ihome_test/7f409ae7-e7b7-4e4d-968e-581b74a4899e.css">
   <script src="https://gw.alipayobjects.com/os/rmsportal/ohuCPrbifXkbfMvLhbVb.js"></script>
   <style>
+    /*html {
+      background: #6C7989;
+      background: #6c7989 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6c7989), color-stop(100%, #434b55)) fixed;
+      background: #6c7989 -webkit-linear-gradient(#6c7989, #434b55) fixed;
+      background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
+    }*/
     body {
+      padding: 0;
+      margin: 0;
+      background-color: #F5F4EF;
+      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
+      /*background: url(https://os.alipayobjects.com/rmsportal/NDDXNJaIPHCkYZS.png) fixed;*/
       /*font: 14px/1.6 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
       /* font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif; */
       /* font-family: Helvetica Neue,Helvetica,Arial,sans-serif; */
       font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
       font-size: 16px; line-height: 1.6; color: #000305;
     }
+    .wrapper {
+      width: 768px;
+      margin: 50px auto;
+      box-shadow: rgba(255, 255, 255, 0.2) 0 0 0 1px, rgba(0, 0, 0, 0.45) 0 1px 3px;
+      background: #fff;
+    }
+    @media print, screen and (max-width: 740px) {
+      .wrapper {
+        width: 100%;
+        margin: 0 auto;
+        box-shadow: none;
+      }
+    }
     .list-unstyle {
       list-style: none; padding: 0; margin: 0;
     }
+    header {
+      position: relative;
+      /* background-color: #dbe4e8; */
+      border: 1px solid #dbe4e8;
+    }
+    header .title { color: #7d94a9; }
     header .github {
       position: absolute; z-index: 1; right: 20px; top: 20px; font-size: 12px;
+    }
+    header h1 {
+      margin: 0; text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
+    }
+    header p {
+      margin: 0; color: #61778B; font-size: 12px;
+    }
+    section {
+      position: relative;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <header style="background-color: #dbe4e8">
-      <h1><a href="/">warmhug</a></h1>
+    <header>
+      <h1><a class="title" href="/">warmhug</a></h1>
       <p>技术成长、工作感悟、教训反思</p>
       <a class="github" href="https://github.com/warmhug">View On GitHub</a>
     </header>
