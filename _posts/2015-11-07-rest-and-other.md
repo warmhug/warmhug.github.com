@@ -57,7 +57,6 @@ Rest 的资源是拆分的“比较细的”，但应用里是想通过一个请
 >
 > The REST interface is designed to be efficient for large-grain hypermedia data transfer, optimizing for the common case of the Web, but resulting in an interface that is not optimal for other forms of architectural interaction.
 
-
 ### 三：Rest API 的设计并不容易
 
 一开始我们做系分时，可能比较容易划分出有哪些资源，对资源粒度划分也可能没那么难。但把这些资源组合或规划起来、对外提供 API 时，可能就没那么容易了，会有让人纠结的地方。如：
@@ -65,10 +64,10 @@ Rest 的资源是拆分的“比较细的”，但应用里是想通过一个请
 - 资源与子资源的组合和划分。有一些资源有明确的父子关系，但很多资源并没有，很多资源可能是平级关系、但需要互相联系起来。具体例子如：
 
 ```sh
-GET /cars/711/drivers/ 
+GET /cars/711/drivers/
 Returns a list of drivers for car 711
 
-GET /cars/711/drivers/4 
+GET /cars/711/drivers/4
 Returns driver #4 for car 711
 ```
 
@@ -76,7 +75,7 @@ Returns driver #4 for car 711
 
 这些问题看起来简单，实际去设计时、却很容易做不好。
 
-## 那么 Rest 自身能否解决以上问题？
+## 那么 Rest 自身能否解决以上问题
 
 一开始 Rest 的出现，是为了解决 Rpc 的问题。Rpc 方式下，应用只有一个端点(endpoint)，导致紧耦合、不易缓存。
 
@@ -91,7 +90,7 @@ Returns driver #4 for car 711
 - Level 1 Resources （解决了 Rpc 问题）
 - Level 2 Http verbs （使用 http verbs 来对各种资源进行 crud 操作，使应用接口更加的统一）
 - Level 3 Hypermedia Controls
-    - level 3 带来了 service discoverablility 和 self-documenting。举例就像访问了某一个最顶层资源，它会返回一个它的子资源列表地址；再访问其中某个子资源，这个子资源又返回它的子资源或关联资源的地址；依次下去甚至能发现整个应用的所有资源地址。实例如 [GitHub-API](https://api.github.com/)。
+  - level 3 带来了 service discoverablility 和 self-documenting。举例就像访问了某一个最顶层资源，它会返回一个它的子资源列表地址；再访问其中某个子资源，这个子资源又返回它的子资源或关联资源的地址；依次下去甚至能发现整个应用的所有资源地址。实例如 [GitHub-API](https://api.github.com/)。
 
 文中作者只提到了第三层级。而上边我们提到过资源的父子资源的 embeded 试想可能的话，让所有资源都能自由的互相 embeded 或者自由的做关联，那就是更进了一步，也差不多能解决以上提到的问题。但即便做到如此，Rest 也还是有其让人觉得不爽的地方。
 

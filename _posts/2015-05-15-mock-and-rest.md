@@ -31,7 +31,6 @@ author_name: warmhug
 
 在与同事们聊过这问题后，后来同事找到了这个工具 [json-server](https://github.com/typicode/json-server)，自己看看后感觉正适合解决这个问题。它是一个能做json服务器的工具，内部依赖了一个叫 [lowdb](https://github.com/typicode/lowdb) （感觉并不low呀~）的文件数据库，提供了完整的REST API支持。可以用它做一个类似于 [firebase](https://www.firebase.com/) 的json云服务平台。我们为了解决具体项目问题、这里就先只做一个项目工具就好了。
 
-
 ## RESTful设计细节探讨
 
 先了解下REST
@@ -86,5 +85,5 @@ author_name: warmhug
     GET    /posts
     GET    /posts/1
     GET    /posts/1/comments
-    
+
 总之API设计是一方面，对应的数据如何存储如何表示，也是很重要的内容，两者协同才能搞出真正好用的东西。

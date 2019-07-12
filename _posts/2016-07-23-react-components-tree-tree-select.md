@@ -34,12 +34,12 @@ tree 组件功能可以很多、可以很复杂，但好的一点是功能模块
 - select 框里选中节点的 `x` 删除和下拉弹出的树组件节点的 `uncheck` 不是一回事，因为触发元素不同、触发时机不同、只是作用效果类似，但对用户来说需要是透明的，需要在一个函数里返回、并尽量要返回一样的结果（其实不可能完全一样）。另外这个反选或删除操作还要对不同的 showCheckedStrategy 分别做处理。
 
 - tree-select 要有搜索功能，要从大量树节点中筛选并组合出新的子树出来。
-    - 搜索要解决的一个问题是，多选状态下 select 框里已经选中的节点要保存着而不能被后来再选中的节点覆盖掉。这是一个很自然的需求，但在有 checkable 功能的树节点中处理的复杂度比较大，因为 checkbox 有父子关联的选中关系计算和相应的不同显示效果。
+  - 搜索要解决的一个问题是，多选状态下 select 框里已经选中的节点要保存着而不能被后来再选中的节点覆盖掉。这是一个很自然的需求，但在有 checkable 功能的树节点中处理的复杂度比较大，因为 checkbox 有父子关联的选中关系计算和相应的不同显示效果。
 
 - 另外就是要对 react 数据状态变化的触发源要很敏感，特别是一些叠加或连续触发的状态变化，尽量避免把不同状态的变化混淆到一起做处理（哪怕处理函数很相似）、这样很容易出现问题。
-    - 例如，因为树的节点数据量比较大，为了性能，需要缓存一些计算后的值避免多次重复计算，如 tree 组件中的 treeNodesStates 即为缓存。
-    - 而 tree-select 初始化时需要在选择框展示初始选中的节点、这些节点在 checkable 状态下，需要计算节点的父子兄弟选中关系，另外还要区分不同的 showCheckedStrategy 。所以 tree-select 需要预先计算出 treeNodesStates 传递给 tree 组件，这样 tree 组件内部便不需要再重复计算了。
-    - 但注意：这时候 tree-select 和 tree 就都会修改 treeNodesStates ， tree-select 在搜索时、要根据搜索筛选后的数据产生新的 tree，同时就需要计算出一个新的 treeNodesStates 传给 tree 组件，但我之前犯的一个错误就是使用了旧值，这个旧值是在点击 check 树节点时、在 tree 组件内部更新计算出的 treeNodesStates ，而此时 tree-select 搜索后生成的新的 tree 节点和这个旧值是不对应的。
+  - 例如，因为树的节点数据量比较大，为了性能，需要缓存一些计算后的值避免多次重复计算，如 tree 组件中的 treeNodesStates 即为缓存。
+  - 而 tree-select 初始化时需要在选择框展示初始选中的节点、这些节点在 checkable 状态下，需要计算节点的父子兄弟选中关系，另外还要区分不同的 showCheckedStrategy 。所以 tree-select 需要预先计算出 treeNodesStates 传递给 tree 组件，这样 tree 组件内部便不需要再重复计算了。
+  - 但注意：这时候 tree-select 和 tree 就都会修改 treeNodesStates ， tree-select 在搜索时、要根据搜索筛选后的数据产生新的 tree，同时就需要计算出一个新的 treeNodesStates 传给 tree 组件，但我之前犯的一个错误就是使用了旧值，这个旧值是在点击 check 树节点时、在 tree 组件内部更新计算出的 treeNodesStates ，而此时 tree-select 搜索后生成的新的 tree 节点和这个旧值是不对应的。
 
 其他的细节问题还有很多、这里也没必要一一列举，想知道就在代码里找吧~
 

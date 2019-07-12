@@ -8,7 +8,6 @@ author_name: warmhug
 > [why AngularJS](http://jeffwhelpley.com/angularjs/)  -- vs --  [The reason Angular JS will fail](https://news.ycombinator.com/item?id=7522520)  
 > [专访AngularJS框架创始人](http://www.csdn.net/article/2013-10-08/2817118-AngularJS-Framework-Google)
 
-
 ## 适用业务场景
 
 I really like Angular, but I think it's best suited for single-page applications and dynamic forms (which is what I use it for). In that context, I've been very pleased with Angular and it's saved me a ton of time.
@@ -18,6 +17,7 @@ It is quite possible to sprinkle a little Angular on your round trip app without
 [Mixing Spring MVC with Angular.JS：](http://stackoverflow.com/questions/25997566/spring-mvc-as-a-rest-provider-with-angularjs-vs-jsp-velocity-freemarker-for-the)
 
 ## 项目目录组织
+
 [angular-seed](https://github.com/angular/angular-seed)、[angular-requirejs-seed](https://github.com/tnajdek/angular-requirejs-seed)  
 [不同规模app文件组织方式介绍](http://codingsmackdown.tv/blog/2013/04/19/angularjs-modules-for-great-justice/)、[示例](https://github.com/lavinjj/angularjs-modules-for-great-justice)  
 [ng-boilerplate](http://joshdmiller.github.io/ng-boilerplate/#/home)、[Scalable code organization in AngularJS](https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06)  
@@ -83,6 +83,7 @@ It is quite possible to sprinkle a little Angular on your round trip app without
 当某个功能controller处理内容过多时，可抽离逻辑到services块中，以尽量使controller更薄 
     
 # 入门与进阶
+
 经典入门教程：[官网首页的介绍及几个demo](https://angularjs.org/)，[官方tutorial](https://code.angularjs.org/1.2.16/docs/tutorial)与[中文翻译](http://angularjs.cn/T006)。 该教程利用git及bower等工具，分步骤有序的讲述各个点。 **通过此教程，能对angular有一个初步的、较全面的认识。**  
 
 > 重点：
