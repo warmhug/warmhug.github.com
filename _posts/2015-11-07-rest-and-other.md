@@ -80,9 +80,9 @@ Returns driver #4 for car 711
 一开始 Rest 的出现，是为了解决 Rpc 的问题。Rpc 方式下，应用只有一个端点(endpoint)，导致紧耦合、不易缓存。
 
 > Rpc 和 Rest 的基本区别：
-> 
+>
 > SOAP Web API采用RPC(面向方法Remote Procedure Call)风格，它采用面向功能的架构，所以在设计之初首先需要考虑的是提供怎样的功能。
-> 
+>
 > RESTful Web API采用ROA(面向资源Resouce Oriented Architecture)架构，所以在设计之初首先需要考虑的是有哪些资源可供操作。
 
 引用下 [richardson rest 模型](http://martinfowler.com/articles/richardsonMaturityModel.html):
