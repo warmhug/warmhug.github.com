@@ -10,3 +10,7 @@ destination: ./_site
 lsi: false
 # markdown: kramdown
 # highlighter: 'pygments'
+
+# assets:
+#   sources:
+#     - _assets
