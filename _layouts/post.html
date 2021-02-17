@@ -2,18 +2,14 @@
 layout: default
 page_name: blog
 ---
-<style>
-.post {
-  letter-spacing: 1px;
-}
-</style>
-<div class="post">
+
+<div class="wrapper-main-post">
   <h2 style="color:#052C54">{{page.title}}</h2>
   {{ content }}
 
   <br />
   <small class="meta">
-  {{ page.date | date:"%B %d, %Y" }} | by {{ page.author_name }}
+  {{ page.date | date: "%F" }} | by {{ page.author_name }}
 
   {% for t in page.tags %}
     {% if forloop.first == true %} | {% endif %}
@@ -24,14 +20,15 @@ page_name: blog
 </div>
 
 <div id="related">
-  <h2>Latest Posts</h2>
-  <ul class="posts">
+  <h3>最近文章</h3>
+  <div>
     {% for post in site.related_posts limit:3 %}
-      <li>
-      <span>{{ post.date | date_to_string }}</span> &raquo;
-      <a href="{{ post.url }}">{{ post.title }}</a></li>
+    <div>
+      <span>{{ post.date | date: "%F" }}</span> &raquo;
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
     {% endfor %}
-  </ul>
+  </div>
 </div>
 
 <!--
