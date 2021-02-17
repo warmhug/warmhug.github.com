@@ -14,24 +14,6 @@
   <link rel="stylesheet" href="/layout.css">
   <script src="https://gw.alipayobjects.com/os/rmsportal/ohuCPrbifXkbfMvLhbVb.js"></script>
   <style>
-    /*html {
-      background: #6C7989;
-      background: #6c7989 -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6c7989), color-stop(100%, #434b55)) fixed;
-      background: #6c7989 -webkit-linear-gradient(#6c7989, #434b55) fixed;
-      background: #6c7989 linear-gradient(#6c7989, #434b55) fixed;
-    }*/
-    body {
-      padding: 0;
-      margin: 0;
-      background-color: #F5F4EF;
-      background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAeCAYAAABNChwpAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNXG14zYAAAAUdEVYdENyZWF0aW9uIFRpbWUAMy82LzEygrTcTAAAAFRJREFUSIljfPDggZRf5RIGGNjUHsNATz6jXmSL1Kb2GLiAX+USBnrymRgGGDCORgFmoNAXjEbBaBSMRsFoFIxGwWgUjEbBaBSMRsFoFIxGwWgUAABYNujumib3wAAAAABJRU5ErkJggg==') fixed;
-      /*background: url(https://os.alipayobjects.com/rmsportal/NDDXNJaIPHCkYZS.png) fixed;*/
-      /*font: 14px/1.6 Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;*/
-      /* font-family: Arial, "Hiragino Sans GB", "Microsoft Yahei", "Microsoft Sans Serif", "WenQuanYi Micro Hei", sans-serif; */
-      /* font-family: Helvetica Neue,Helvetica,Arial,sans-serif; */
-      font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
-      font-size: 16px; line-height: 1.6; color: #000305;
-    }
     .wrapper {
       width: 768px;
       margin: 50px auto;
@@ -45,41 +27,37 @@
         box-shadow: none;
       }
     }
-    .list-unstyle {
-      list-style: none; padding: 0; margin: 0;
-    }
-    header, section, footer {
+    .header, .wrapper-main, footer {
       display: block;
       padding: 15px 20px;
     }
-    header {
+    .header {
       position: relative;
-      /* background-color: #dbe4e8; */
       border: 1px solid #dbe4e8;
     }
-    header h1 {
+    .header h1 {
       margin: 0; text-shadow: rgba(255, 255, 255, 0.9) 0 1px 0;
     }
-    header p {
+    .header p {
       margin: 0; color: #61778B; font-size: 12px;
     }
-    header .title { color: #7d94a9; }
-    header .github {
+    .header .title { color: #7d94a9; }
+    .header .github {
       position: absolute; z-index: 1; right: 20px; top: 20px; font-size: 12px;
     }
-    section {
+    .wrapper-main {
       position: relative;
     }
   </style>
 </head>
 <body>
   <div class="wrapper">
-    <header>
+    <div class="header">
       <h1><a class="title" href="/">warmhug</a></h1>
       <p>技术成长、工作感悟、教训反思</p>
       <a class="github" href="https://github.com/warmhug">View On GitHub</a>
-    </header>
-    <section>{{ content }}</section>
+    </div>
+    <div class="wrapper-main">{{ content }}</div>
     <footer>
       Project maintained by <a href="https://github.com/warmhug">warmhug</a>.<br>
       Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>
