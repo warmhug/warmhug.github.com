@@ -72,9 +72,9 @@ This syntax looks exactly like the new MDV standard that you can check here [mdv
 
 要展示应用程序，必须先要通过ajax请求来数据，angular内置了$http服务和更高层的封装$resource服务，其使用方式也类似于jquery中的ajax，如果是简单的需求，依照api提供的方法，直接获取数据展示即可，这里讨论些稍微复杂的情形，这便还需要引出promise。
 
-关于promise，网上资料已经很多，也有很多相应的封装库，[这里](https://github.com/warmhug/diy-classic/tree/master/promise)我对之做了些整理，不太了解的可以做下参考。
+关于promise，网上资料已经很多，也有很多相应的封装库。
 
-[这里](/demo/angular-sty/series_4/http-promise.html)的demo用$timeout、$q、$http做了个简单的请求数据示例，其中就能很好体现promise的优势。
+[这里](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_4/http-promise.html)的demo用$timeout、$q、$http做了个简单的请求数据示例，其中就能很好体现promise的优势。
 
 另外还要结合[$route](http://code.angularjs.org/1.0.7/docs/api/ng.$route)描述一些常用示例。当app的router切换时，一般都会涉及到数据的请求，这便有以下情形：
 
@@ -87,7 +87,7 @@ This syntax looks exactly like the new MDV standard that you can check here [mdv
 [$routeProvider](http://docs.angularjs.org/api/ngRoute.$routeProvider)的api配置里有这个`resolve`，其描述是这样：
 > An optional map of dependencies which should be injected into the controller. If any of these dependencies are promises, they will be resolved and converted to a value before the controller is instantiated and the $routeChangeSuccess event is fired.
 
-大意是：如果依赖是promise，那么在controller实例化和$routeChangeSuccess事件触发前，需要等到promise的resolve执行并转换成value值。看一个实际的[demo](/demo/angular-sty/series_4/route-promise-part1.html)，这里是关键的一段：
+大意是：如果依赖是promise，那么在controller实例化和$routeChangeSuccess事件触发前，需要等到promise的resolve执行并转换成value值。看一个实际的[demo](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_4/route-promise-part1.html)，这里是关键的一段：
 
 ```js
 resolve: {
@@ -99,7 +99,7 @@ resolve: {
 
 试试把这段注释掉，再和之前对比下app.controller中的console.log值，看看有什么不一样？这样就会返回null了，这就说明了controller实例的执行，是先等待了数据请求成功。
 
-上边说到的第三种情形：多个数据源，有序或无序请求，完成之后实例化constroller。这里还是提供demo说明之：[无序请求](/demo/angular-sty/series_4/route-promise-part2.html)，[有序请求](/demo/angular-sty/series_4/route-promise-part3.html) 看源码会发现，无序请求只需在route配置中的resolve上多配置个参数即可；但有序请求稍微复杂点：
+上边说到的第三种情形：多个数据源，有序或无序请求，完成之后实例化constroller。这里还是提供demo说明之：[无序请求](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_4/route-promise-part2.html)，[有序请求](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_4/route-promise-part3.html) 看源码会发现，无序请求只需在route配置中的resolve上多配置个参数即可；但有序请求稍微复杂点：
 
 ```js
 MyService.promise.then(function () {
@@ -111,7 +111,7 @@ MyService.promise.then(function () {
 
 需要在先发请求的promise获得数据（即resolve）后，再返回后续的promise（即发后续请求），route配置中的resolve上只需要最后一个promise即可。
 
-最后再看一个实际应用级别的[demo](/demo/angular-sty/series_4/route-promise-full.html)
+最后再看一个实际应用级别的[demo](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_4/route-promise-full.html)
 
 #### 引用
 - [http://stackoverflow.com/questions/16286605/initialize-angularjs-service-with-asynchronous-data](http://stackoverflow.com/questions/16286605/initialize-angularjs-service-with-asynchronous-data)

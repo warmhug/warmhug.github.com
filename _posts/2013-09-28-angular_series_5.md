@@ -28,11 +28,11 @@ Note, by default, directives do not create new scope -- i.e., the default is `sc
 
 组件怎么写？
 
-- angular文档[首页](http://angularjs.org/)的“Create Components”部分的demo就是个好例子。这里再提供个 [对话框](/demo/angular-sty/series_5/isolate-scope-dialog.html) 组件的demo，侧重于演示directive上的scope的配置（此示例创建了个isolate scope，即此对话框是个“可复用”的组件）。
+- angular文档[首页](http://angularjs.org/)的“Create Components”部分的demo就是个好例子。这里再提供个 [对话框](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_5/isolate-scope-dialog.html) 组件的demo，侧重于演示directive上的scope的配置（此示例创建了个isolate scope，即此对话框是个“可复用”的组件）。
 - 更复杂的还有涉及到多个形成isolate scope的组件互相嵌套，怎么传递数据的问题等。
-- 再来个[demo](/demo/angular-sty/series_5/directive-nested-2waybind.html)，主要演示$apply的使用，绑定数据为primitive类型(e.g., number, string, boolean)即代码中的`$scope.prim = 'xxx';`双向绑定无效的情形。
+- 再来个[demo](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_5/directive-nested-2waybind.html)，主要演示$apply的使用，绑定数据为primitive类型(e.g., number, string, boolean)即代码中的`$scope.prim = 'xxx';`双向绑定无效的情形。
 
-- 组件之间如何通信？先看[demo](/demo/angular-sty/series_5/directive-communicate.html)，注意demo上的“注释”部分！这里只做下最终总结：
+- 组件之间如何通信？先看[demo](https://github.com/warmhug/warmhug.github.com/blob/ecbaf3fee79e9f0f0bb38b3a9604f8ac8f58c2d1/demo/angular-sty/series_5/directive-communicate.html)，注意demo上的“注释”部分！这里只做下最终总结：
 
     - 嵌套directive中，子directive能配置require父directive，这样能获取到父directive上controller里暴露的方法。
     - 原型继承的scope，即不是这种`scope: { ... }`，子scope能直接使用父scope上的数据
