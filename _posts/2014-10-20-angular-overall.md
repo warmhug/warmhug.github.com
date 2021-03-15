@@ -163,9 +163,7 @@ It is quite possible to sprinkle a little Angular on your round trip app without
 - [理解directive](https://github.com/angular/angular.js/wiki/Understanding-Directives)
 - [directive-to-directive-communication](https://thinkster.io/egghead/directive-to-directive-communication/)
 
-- directive scope 中 `@`、`=`、`&` 的区别：[1](http://stackoverflow.com/questions/14050195/what-is-the-difference-between-and-in-directive-scope)、
-[2](http://stackoverflow.com/questions/14908133/what-is-the-difference-between-vs-and-in-angularjs)
-    - [isolate-scope-and-function-parameters](https://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-3-isolate-scope-and-function-parameters)
+- directive scope 中 `@`、`=`、`&` 的区别：[1](http://stackoverflow.com/questions/14050195/what-is-the-difference-between-and-in-directive-scope)、[2](http://stackoverflow.com/questions/14908133/what-is-the-difference-between-vs-and-in-angularjs/)、 [isolate-scope-and-function-parameters](https://weblogs.asp.net/dwahlin/creating-custom-angularjs-directives-part-3-isolate-scope-and-function-parameters/)
 
 - Compile, Controller, Pre-link, Post-Link 的执行顺序及分别做了什么？ [参考](http://odetocode.com/blogs/scott/archive/2014/05/28/compile-pre-and-post-linking-in-angularjs.aspx) 、[深入理解 compile, pre-link and post-link function 的不同](http://www.jvandemo.com/the-nitty-gritty-of-compile-and-link-functions-inside-angularjs-directives/)
 
