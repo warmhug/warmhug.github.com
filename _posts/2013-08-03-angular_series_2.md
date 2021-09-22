@@ -11,9 +11,9 @@ author_name: warmhug
 
 为兼容IE7、8增加了不少设置，这里再对之整理下：
 
-- &lt;html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="optionalModuleName"&gt;即ng-app需要加上id="ng-app"
+- `<html xmlns:ng="http://angularjs.org" id="ng-app" ng-app="optionalModuleName">`即ng-app需要加上id="ng-app"
 - 引入json2.js或json3.js
-- body里有任何类似<ng-include></ng-include>的非html本身就有的元素标签，需要在script中加入document.createElement('ng-include');之类的代码创建相应元素，来使得ie能正确渲染这些自定义元素
+- body里有任何类似`<ng-include></ng-include>`的非html本身就有的元素标签，需要在script中加入document.createElement('ng-include');之类的代码创建相应元素，来使得ie能正确渲染这些自定义元素
 
 angular提出了许多[概念](http://docs.angularjs.org/guide/concepts)，大概也正是这些概念打动了许多人的心。我们为了在项目实际应用，需要从这些概念中抽出基础的、实质的内容，来深入理解学习才行。
 

@@ -58,9 +58,11 @@ Here's how AngularJS does it:
 
 It makes writing dynamic code with HTML declarative again. And if you have to loop through an array, you just do:
 
-	<ul>
-	  <li ng-repeat="element in array">element</li>
-	</ul>
+```html
+<ul>
+  <li ng-repeat="element in array">element</li>
+</ul>
+```
 
 This syntax looks exactly like the new MDV standard that you can check here [mdv](http://mdv.googlecode.com/git/docs/design_intro.html). This looks much cleaner than using Ember's mustache and again, when you learn AngularJS you actually learn the future of JS.
 
