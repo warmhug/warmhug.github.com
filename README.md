@@ -25,3 +25,7 @@ jekyll用了 liquid 作为模板，{{、}}、{%、%}等可能做了liquid的模�
 jekyll serve     # http://localhost:4000/index.html
 jekyll serve --host 0.0.0.0    # http://ip:4000/index.html
 ```
+
+---
+
+皮肤 https://jekyll-themes.com/minima-reboot/
