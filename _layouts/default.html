@@ -1,33 +1,14 @@
 <!doctype html>
 <html>
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-  <meta name="description" content="Warmhug.github.com" />
-  <meta name="keywords" content="Web JavaScript css html" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-touch-fullscreen" content="yes" />
-  <meta name="format-detection" content="telephone=no" />
-  <title>{{ page.title }}</title>
-  <link rel="stylesheet" href="/layout.css">
-  <link rel="stylesheet" href="/layout-md.css">
-  <script src="https://gw.alipayobjects.com/os/rmsportal/ohuCPrbifXkbfMvLhbVb.js"></script>
-</head>
+  {% include head.html %}
 <body>
-  <div class="wrapper">
-    <div class="header">
-      <h1><a class="title" href="/">warmhug</a></h1>
-      <p>技术成长、工作感悟、教训反思</p>
-      <a class="github" href="https://github.com/warmhug">View On GitHub</a>
-    </div>
-    <div class="wrapper-main">{{ content }}</div>
-    <footer>
-      Project maintained by <a href="https://github.com/warmhug">warmhug</a>.<br>
-      Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a>
-    </footer>
-  </div>
+  {% include header.html %}
+    <main aria-label="Content">
+      <div id="content-container" class="container">
+        {{ content }}
+      </div>
+    </main>
+  {% include footer.html %}
   <!--[if !IE]><script>fixScale(document);</script><![endif]-->
 </body>
 </html>

@@ -1,25 +1,44 @@
 ---
 layout: default
-page_name: blog
 ---
 
-<div class="wrapper-main-post">
-  <h2 style="color:#052C54">{{page.title}}</h2>
-  {{ content }}
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="pt-2 pb-2">
+    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="text-secondary">
+      {% if page.author %}
+        {% if page.author_url %}
+          <a href="{{ page.author_url }}">
+        {% endif %}
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span itemprop="name">{{ page.author }}</span></span>
+        {% if page.author_url %}
+          </a>
+        {% endif %}
+        &bull;
+      {% endif %}
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {% assign date_format = site.minima_reboot.date_format | default: "%b %-d, %Y" %}
+        {{ page.date | date: date_format }}
+      </time>
+    </p>
+  </header>
 
-  <br />
+  <div class="text-justify" itemprop="articleBody" id="content">
+    {{ content }}
+  </div>
+
   <small class="meta">
   {{ page.date | date: "%F" }} | by {{ page.author_name }}
 
   {% for t in page.tags %}
     {% if forloop.first == true %} | {% endif %}
-    <a href='/tags.html#{{ t | escape }}'>{{ t }}</a>
+    <a href='/posts.html#{{ t | escape }}'>{{ t }}</a>
     {% if forloop.last == false %}, {% endif %}
   {% endfor %}
   </small>
-</div>
+</article>
 
-<div id="related">
+<div class="mt-3 mb-3">
   <h3>最近文章</h3>
   <div>
     {% for post in site.related_posts limit:3 %}
@@ -30,24 +49,3 @@ page_name: blog
     {% endfor %}
   </div>
 </div>
-
-<!--
-<div id="comments">
-    <h3>Comments</h3>
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'warmhug'; // required: replace example with your forum shortname
-
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function () {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-            // dsq.src = 'https://os.alipayobjects.com/rmsportal/fMJXUMYSzNyUDWB.js'; // embed.js
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
-    </script>
-    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-</div>
--->

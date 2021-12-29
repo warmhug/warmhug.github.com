@@ -29,3 +29,11 @@ jekyll serve --host 0.0.0.0    # http://ip:4000/index.html
 ---
 
 皮肤 https://jekyll-themes.com/minima-reboot/
+_includes/head.html 里的 `{% seo %}` 报错，可加入以下 Google 统计代码
+
+```text
+{% if jekyll.environment == 'production' and site.google_analytics %}
+  {% include google-analytics.html %}
+{% endif %}
+```
+

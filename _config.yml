@@ -1,5 +1,12 @@
-safe: true
+title: Warmhug
+author: warmhug
+email: hualei5280@gmail.com
+description: >
+  成长 | 感悟 | 反思
 
+head_inline: "<style>td:first-child { width: 7rem; }</style>"
+
+safe: true
 jekyll serve: true
 port: 4000
 baseurl: /
@@ -8,9 +15,20 @@ url: http://localhost:4000
 source: .
 destination: ./_site
 lsi: false
-# markdown: kramdown
+
+markdown: kramdown
 # highlighter: 'pygments'
 
-# assets:
-#   sources:
-#     - _assets
+collections:
+  collections:
+    output: true
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-feed
+  - jekyll-redirect-from
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
