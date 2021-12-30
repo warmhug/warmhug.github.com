@@ -5,16 +5,12 @@ title: 随笔
 
 <h2>{{ page.title }} ({{ site.posts | size }} 篇)</h2>
 
-<ul class="nav nav-pills mb-4 mt-4" id="postNav">
-  <li class="nav-item">
-    <a class="nav-link active" href="#">全部</a>
-  </li>
+<div class="mb-4 mt-4" id="postNav">
+  <a class="btn btn-sm btn-primary" href="#" role="button">全部</a>
   {% for tag in site.tags %}
-  <li class="nav-item">
-    <a class="nav-link" href='#{{ tag[0] | escape }}'>{{ tag[0] }}</a>
-  </li>
+  <a class="btn btn-sm btn-light" href="#" role="button" href='#{{ tag[0] | escape }}'>{{ tag[0] }}</a>
   {% endfor %}
-</ul>
+</div>
 
 <ul class="list-unstyled" id="postList"></ul>
 

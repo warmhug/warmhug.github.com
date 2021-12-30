@@ -5,8 +5,6 @@ tags: [other]
 author_name: warmhug
 ---
 
-> 收集记录
-
 显示器各种接口 (<https://diy.pconline.com.cn/582/5823699_all.html>)
 
 - VGA: 15孔、最广泛 最古老、模拟信号、1080P分辨率画面损失(可用在低于1080P分辨率显示器上)、只能传图像不能传声音。

@@ -1,6 +1,7 @@
 ---
 layout: default
 title: AIOT
+order: 2
 ---
 
 ## AI & IOT

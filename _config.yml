@@ -3,6 +3,7 @@ author: warmhug
 email: hualei5280@gmail.com
 description: >
   成长 | 感悟 | 反思
+github: https://github.com/warmhug
 
 head_inline: "<style>td:first-child { width: 7rem; }</style>"
 
@@ -18,6 +19,8 @@ lsi: false
 
 markdown: kramdown
 # highlighter: 'pygments'
+paginate: 5
+paginate_path: "/page:num/"
 
 collections:
   collections:

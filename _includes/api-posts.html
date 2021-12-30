@@ -27,10 +27,13 @@
   const listNode = document.querySelector('#postList');
   const renderItem = post => `<li><span>${post.date}</span> &raquo; <a href="${post.url}">${post.title}</a></li>`;
   const activeNav = (nodeText) => {
-    navNode.querySelectorAll('.nav-link').forEach(ele => {
-      ele.classList.remove('active')
+    navNode.querySelectorAll('.btn').forEach(ele => {
       if (ele.innerHTML === nodeText) {
-        ele.classList.add('active');
+        ele.classList.remove('btn-light');
+        ele.classList.add('btn-primary');
+      } else {
+        ele.classList.remove('btn-primary');
+        ele.classList.add('btn-light');
       }
     });
   };
@@ -42,7 +45,7 @@
     listNode.innerHTML = postRawData.map(renderItem).join('');
   }
   navNode.addEventListener('click', (evt) => {
-    console.log('tar', evt.target.tagName);
+    // console.log('tar', evt.target.tagName);
     if (evt.target.tagName !== 'A') {
       return;
     }
