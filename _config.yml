@@ -7,8 +7,6 @@ github: https://github.com/warmhug
 
 head_inline: "<style>td:first-child { width: 7rem; }</style>"
 
-safe: true
-jekyll serve: true
 port: 4000
 baseurl: /
 url: http://localhost:4000
