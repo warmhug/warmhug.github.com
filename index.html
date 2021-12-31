@@ -12,20 +12,19 @@ title: Warmhug's blog
 <ul class="list-unstyled">
   {% for post in posts %}
   <li class="py-2">
-    <h1 class="mt-1 mb-3 h3">
+    <h1 class="mt-2 h3">
       <a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
     </h1>
+    <div class="mb-2 text-secondary">{{ post.date | date: "%F" }}</div>
     <div class="text-justify">
       {{ post.excerpt }}
-      ...
     </div>
   </li>
   {% endfor %}
-  <li><a href="posts.html">...</a></li>
 </ul>
 
 {% if site.paginate %}
-<nav class="py-1" aria-label="Blog page navigation">
+<span class="py-1" aria-label="Blog page navigation">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Previous</a>
   {% endif %}
@@ -35,6 +34,8 @@ title: Warmhug's blog
   {% if paginator.next_page %}
     <a href="{{ paginator.next_page_path | relative_url }}">Next &raquo;</a>
   {% endif %}
-</nav>
+</span>
 {% endif %}
+&bull;
+<a href="posts.html">全部随笔</a>
 
