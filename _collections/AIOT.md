@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: collections
 title: AIOT
 order: 2
 ---

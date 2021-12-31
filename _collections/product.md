@@ -1,6 +1,6 @@
 ---
-layout: default
-title: 产品&运营
+layout: collections
+title: 产品
 order: 1
 ---
 
