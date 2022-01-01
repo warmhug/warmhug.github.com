@@ -23,7 +23,6 @@ paginate_path: "/page:num/"
 collections:
   collections:
     output: true
-    sort_by: order
 
 plugins:
   - jekyll-seo-tag
