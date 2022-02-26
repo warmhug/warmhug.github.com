@@ -11,6 +11,10 @@ order: 2
 - Top Sites in China - Alexa [https://www.alexa.com/topsites/countries/CN](https://www.alexa.com/topsites/countries/CN)
 - 全球TOP10热门国家特点 [https://www.atatech.org/articles/87311](https://www.atatech.org/articles/87311)
 
+运营分类：用户运营、产品运营、商家商品运营和内容运营。
+
+运营工具：Excel数据处理能力、SQL能力、P图基础技能、调研技巧。
+
 - 新媒体：微信公众号/小程序、微博、抖音、小红书；个人微博运营；自媒体：李叫兽、咪蒙。
   - 新媒体运营，运营的是新媒体渠道。产品运营，运营的是产品。如果把新媒体账号当成一个产品呢？你既是产品经理，也是产品运营。
   - 老媒介：营销、广告/策划公司。
