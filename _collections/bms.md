@@ -4,6 +4,11 @@ title: 运营-市场-品牌-服务
 order: 2
 ---
 
+# 行业
+
+梁汝波划定的六大业务板块中，大力教育所处赛道面临强监管，前景仍不乐观；飞书和火山引擎面向B端市场，竞争格外激烈，且需要长时间培育。增长较快且具备优势地位的，主要是抖音、TikTok和游戏三大板块，其中抖音电商是重中之重。
+2022-03-09 https://www.lieyunwang.com/archives/481160
+
 # 运营 & 商业
 
 - 抖音KOL [https://kolranking.com/](https://kolranking.com/)
