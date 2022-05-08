@@ -7,11 +7,7 @@ author_name: warmhug
 
 阿里云 GTS 交付技术部 负责了很多中大型客户的众多项目交付。我们的 SA / BA / TM 等各角色同学，在做云平台或数字化转型交付时，需要梳理客户需求、设计产出业务和技术架构、并协同生态及合作伙伴完成交付。这个过程中，不可避免地需要做许多架构图 PPT，而内容上也难免有很多的重复性、并且缺乏结构化的数据来源和数据沉淀。
 
-面对这些痛点问题、我们探索了一种解决方案，即 不用画的标准架构图工具、支持“快速做出标准的架构图”，可点击查看以下简要操作视频、详细可访问 [tfox-demo](https://warmhug.github.io/tfox/#/) ([内部](https://tfox.gts.work))。
-
-<video style="max-width: 60%">
-<source src="https://cloud.video.taobao.com/play/u/20/p/1/d/hd/e/6/t/1/274823235846.mp4?auth_key=YXBwX2tleT04MDAwMDAwMTMmYXV0aF9pbmZvPXsidGltZXN0YW1wRW5jcnlwdGVkIjoiZTc5ZTMwNGMwYmExNDA1YzllNDA4NzdjMzVmZTJiNWMifSZkdXJhdGlvbj0mdGltZXN0YW1wPTE2NDM0NjA0OTE=">
-</video>
+面对这些痛点问题、我们探索了一种解决方案，即 不用画的标准架构图工具、支持“快速做出标准的架构图”，可点击查看 ~~简要操作视频~~ [图示](https://img.alicdn.com/imgextra/i3/O1CN01nsUpUq1JcwcdbVjlL_!!6000000001050-0-tps-2876-1584.jpg) ([访问需注册](https://tfox.gts.work))。
 
 每个平台工具都有自己的初心和特点，接着就 “与使用 PPT 的区别”、“数据”、“技术实现” 三个方面做一些介绍。
 
