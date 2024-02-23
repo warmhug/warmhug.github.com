@@ -14,7 +14,7 @@ jekyll用了 liquid 作为模板，{{、}}、{%、%}等可能做了liquid的模�
 
 ```text
 {% raw %}
-...lots of liquid code goes here and it doesn't get interpreted...  
+...lots of liquid code goes here and it doesn't get interpreted...
 {% endraw %}
 ```
 
@@ -48,3 +48,6 @@ index.md 里原来的 post 代码
 <!-- {% for post in site.posts limit:10 %} -->
 ```
 
+### 其他
+
+需要 assets 文件夹引用 _sass 里的文件 https://jekyllrb.com/docs/assets/
