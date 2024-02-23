@@ -4,15 +4,17 @@ title: 关于我
 permalink: /about
 ---
 
+<style>
+  ul { padding: 16px; }
+</style>
+
 <div class="highlight">
-<pre>
+<pre style="white-space:normal; margin:0;">
   戎码十五载:
-  <a href="https://github.com/warmhug/__" target="_blank">日常</a>、
+  <a href="https://github.com/warmhug/__" target="_blank">日常</a> |
   <a href="https://github.com/warmhug/_archive" target="_blank">存档</a>
 </pre>
 </div>
-
-#### 个人经历
 
 - 2022-2024: 字节跳动-基础架构
 - 2019-2022: 阿里云-交付部门
