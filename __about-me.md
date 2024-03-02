@@ -17,8 +17,9 @@ permalink: /about
 </pre>
 </div>
 
-<br>
-<strong>重要经历</strong>
+<div style="margin: 18px 0 -3px;">
+  <strong>重要经历</strong>
+</div>
 
 - 2022/5-2024: 字节跳动-基础架构-APM
   - 前端监控平台 Slardar web 业务和产品研发的owner。后端监控平台 Argos 报警业务的前端负责人。ref [字节监控之旅](https://warmhug.github.io/2024/02/15/bytedance-monitor-journey.html)
