@@ -5,7 +5,8 @@ permalink: /about
 ---
 
 <style>
-  ul { padding: 16px; }
+  ul { padding: 8px 16px; }
+  ul li { padding-top: 2px; }
 </style>
 
 <div class="highlight">
@@ -15,6 +16,9 @@ permalink: /about
   <a href="https://github.com/warmhug/_archive" target="_blank">存档</a>
 </pre>
 </div>
+
+<br>
+<strong>重要经历</strong>
 
 - 2022/5-2024: 字节跳动-基础架构-APM
   - 前端监控平台 Slardar web 业务和产品研发的owner。后端监控平台 Argos 报警业务的前端负责人。ref [字节监控之旅](https://warmhug.github.io/2024/02/15/bytedance-monitor-journey.html)
@@ -29,6 +33,6 @@ permalink: /about
   - 参与最早期的“蚂蚁小程序”建设，参与蚂蚁小程序第一个试点项目“ofo小程序”的开发。
   - 参与蚂蚁 “网商银行、金融云” 等超大型项目 0-1 的阶段。参与支付宝APP内多个产品的开发。
 - 2012/1-2013/12: 实习、毕业、工作第一年
-- 2008/9-2012/6: college(浙江某二本), 团购网/校园生活网 (校园创业)
-  - 非计算机专业、大二开始自学.net/js做网站、谈20+家广告 赚一点钱
+- 2008/9-2012/6: college(浙江某二本), 团购网/校园生活网 ("百团大战"时期)
+  - 非计算机专业、大二开始自学.net/js做网站、校园创业 谈20+家广告 赚一点钱。
 - born-2008: 中华民族的发源地
