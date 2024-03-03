@@ -8,14 +8,14 @@ permalink: /about
   ul { padding: 8px 16px; }
   ul li { padding-top: 2px; }
 </style>
-
+<!--
 <div class="highlight">
 <pre style="white-space:normal; margin:0;">
   戎码十五载:
   <a href="https://github.com/warmhug/__" target="_blank">日常</a> |
   <a href="https://github.com/warmhug/_archive" target="_blank">存档</a>
 </pre>
-</div>
+</div> -->
 
 <div style="margin: 18px 0 -3px;">
   <strong>重要经历</strong>
