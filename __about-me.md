@@ -7,6 +7,12 @@ permalink: /about
 <style>
   ul { padding: 8px 16px; }
   ul li { padding-top: 2px; }
+  table, tbody, tr {
+    border-top: 1px solid gray;
+  }
+  table, th, td {
+    padding: 4px;
+  }
 </style>
 <!--
 <div class="highlight">
