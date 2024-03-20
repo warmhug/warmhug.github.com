@@ -7,11 +7,11 @@ permalink: /about
 <style>
   ul { padding: 8px 16px; }
   ul li { padding-top: 2px; }
-  table, tbody, tr {
+  table tbody tr {
     border-top: 1px solid gray;
   }
   table, th, td {
-    padding: 4px;
+    padding: 8px;
   }
 </style>
 <!--
@@ -53,3 +53,6 @@ permalink: /about
 | 2012-2018 |  点和线: h5页面 中后台页面 组件库  |  c端 b端 业务支撑  | 编程能力 开源(质量) 工程化  |
 | 2019-2022 |  面: 技术大图 业务架构  |  业务模块owner 难点攻坚  | 独立负责 全链路 规划 合作和责任 成事  |
 | 2022-至今 |  面和网: 技术规划 竞品调研 技术前瞻性 后端技术  |  整个业务owner 业务规划 业务价值  | 跨国合作  突破瓶颈  抗压  管理和协作 |
+
+<br>
+<br>
