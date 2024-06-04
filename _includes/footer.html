@@ -1,0 +1,48 @@
+<footer id="site-footer">
+  <div class="container">
+    <div class="h5 pt-4">
+      Warmhug's blog
+      {% if site.plugins contains "jekyll-feed" %}
+        <a id="rss-icon" href="{{ "/feed.xml" | relative_url }}"></a>
+      {% endif %}
+    </div>
+    <div class="row">
+      <div class="col col-lg-6">
+        <ul class="list-unstyled">
+          <li class="text-secondary">
+            <a href="{{ site.github }}" target="_blank">
+              <div id="github-icon"></div>
+              {{ site.author | escape }}
+            </a>
+            <span class="m-1">|</span>
+            {% if site.email %}
+            <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+            {% endif %}
+          </li>
+          <li>
+            <small class="text-secondary text-justify">
+              技术<strong>成长</strong>、
+              工作<strong>感悟</strong>、
+              教训<strong>反思</strong>
+            </small>
+          </li>
+        </ul>
+      </div>
+      <div class="col-12 col-lg">
+        <small>
+          <strong>
+            I hear and I forget. &nbsp;&nbsp;
+            I see and I remember. &nbsp;&nbsp;
+            I do and I understand.
+          </strong>
+          <br />
+          <mark>Love</mark> ends when you stop caring. &nbsp;&nbsp;
+          <mark>Friendship</mark> ends when you stop sharing.
+          <br />
+          <mark>Life</mark> stops when you stop dreaming. &nbsp;&nbsp;
+          <mark>Hope</mark> ends when you stop believing.
+        </small>
+      </div>
+    </div>
+  </div>
+</footer>

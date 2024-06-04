@@ -1,0 +1,24 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- <meta http-equiv="X-UA-Compatible" content="chrome=1" /> -->
+  <meta name="keywords" content="Web JavaScript css html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" /> -->
+  <title>{{ page.title }}</title>
+
+  <link rel="shortcut icon" href="{{ "/assets/favicon.png" | relative_url }}" type="image/x-icon">
+  <link rel="icon" href="{{ "/assets/favicon.png" | relative_url }}" type="image/x-icon">
+
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://gw.alipayobjects.com/os/lib/bootstrap/4.6.0/dist/css/bootstrap.min.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title | escape }}" href="{{ "/feed.xml" | relative_url }}">
+
+  <script src="https://gw.alipayobjects.com/os/rmsportal/ohuCPrbifXkbfMvLhbVb.js"></script>
+
+  {% if page.head_inline %}
+  {{ page.head_inline }}
+  {% endif %}
+</head>

@@ -1,0 +1,60 @@
+<script>
+  const postRawData = [
+    {% for post in site.posts %}
+      {
+        date: '{{ post.date | date: "%F" }}',
+        title: '{{ post.title | escape }}',
+        tags: '{{ post.tags | escape }}',
+        url: '{{ post.url }}',
+        slug: '{{ post.slug }}'
+      }
+      {% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  const postData = {};
+  postRawData.forEach(item => {
+    JSON.parse(item.tags.replace(/&quot;/g, '"')).forEach(tag => {
+      if (!postData[tag]) {
+        postData[tag] = [];
+      }
+      postData[tag].push(item);
+    });
+  });
+  // console.log('pd', postData);
+
+  const navNode = document.querySelector('#postNav')
+  const listNode = document.querySelector('#postList');
+  const renderItem = post => `<li><span>${post.date}</span> &raquo; <a href="${post.url}">${post.title}</a></li>`;
+  const activeNav = (nodeText) => {
+    navNode.querySelectorAll('.btn').forEach(ele => {
+      if (ele.innerHTML === nodeText) {
+        ele.classList.remove('btn-light');
+        ele.classList.add('btn-primary');
+      } else {
+        ele.classList.remove('btn-primary');
+        ele.classList.add('btn-light');
+      }
+    });
+  };
+  const hash = location.hash.replace('#', '');
+  if (postData[hash]) {
+    listNode.innerHTML = postData[hash].map(renderItem).join('');
+    activeNav(hash);
+  } else {
+    listNode.innerHTML = postRawData.map(renderItem).join('');
+  }
+  navNode.addEventListener('click', (evt) => {
+    // console.log('tar', evt.target.tagName);
+    if (evt.target.tagName !== 'A') {
+      return;
+    }
+    const targetData = postData[evt.target.innerHTML];
+    if (targetData) {
+      listNode.innerHTML = targetData.map(renderItem).join('');
+    } else {
+      listNode.innerHTML = postRawData.map(renderItem).join('');
+    }
+    activeNav(evt.target.innerHTML);
+  })
+</script>

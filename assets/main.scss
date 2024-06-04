@@ -1,0 +1,38 @@
+---
+# this ensures Jekyll reads the file to be transformed into CSS later
+# only Main files contain this front matter, not partials.
+---
+
+@import "index";
+
+html {
+  font-size: 14px;
+}
+body {
+  font-size: 1.16rem;
+}
+img {
+  max-width: 100%;
+}
+#my_toc {
+  position: fixed;
+  right: 10px;
+  top: 125px;
+  box-shadow: -1px 1px 2px 1px #eee;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  max-width: 165px;
+  a {
+    color: #99979c;
+  }
+  a:hover {
+    color: #007bff;
+    text-decoration: none;
+  }
+}
+@media (max-width: 1200px) {
+  #my_toc {
+    display: none;
+  }
+}

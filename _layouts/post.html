@@ -1,0 +1,44 @@
+---
+layout: default
+---
+
+<article itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="pt-2 pb-2">
+    <h1 itemprop="name headline">{{ page.title | escape }}</h1>
+    <p class="text-secondary">
+      <time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">
+        {{ page.date | date: "%F" }} 
+      </time>
+      &bull;
+      <a href="{{ site.github }}" target="_blank">
+        <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">{{ page.author_name }}</span>
+        </span>
+      </a>
+      <small>
+        Tags:
+        {% for t in page.tags %}
+           <a href='/posts.html#{{ t | escape }}'>{{ t }}</a>
+          {% if forloop.last == false %}| {% endif %}
+        {% endfor %}
+        </small>
+    </p>
+  </header>
+
+  {% include toc.html html=content id="my_toc" class="list-unstyled" %}
+  <div class="text-justify" itemprop="articleBody" id="content">
+    {{ content }}
+  </div>
+</article>
+
+<div class="mt-5 mb-3">
+  <h3>最近文章</h3>
+  <div>
+    {% for post in site.related_posts limit:3 %}
+    <div>
+      <span>{{ post.date | date: "%F" }}</span> &raquo;
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
