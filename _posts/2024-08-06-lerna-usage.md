@@ -5,7 +5,7 @@ tags: [js]
 author_name: warmhug
 ---
 
-### 介绍
+最近团队在做一个类似 [ant-design/pro-components](https://github.com/ant-design/pro-components) 的组件库，便 fork 了这里的代码。一是要把底层依赖比如 antd 修改为内部的基础组件库，二是需要使用公司内部的“研发和发布流程”、其中不少改动都跟 lerna 有关，为了彻底搞清楚它的用法、也看了一遍它的核心代码，总结了一些实践出来。
 
 使用
 [lerna](https://lerna.js.org/docs/recipes/using-pnpm-with-lerna) 和
