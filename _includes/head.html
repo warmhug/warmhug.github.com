@@ -18,14 +18,12 @@
 
   <script src="https://gw.alipayobjects.com/os/rmsportal/ohuCPrbifXkbfMvLhbVb.js"></script>
 
-  {% if page.head_inline %}
-  {{ page.head_inline }}
+  {% if site.head_inline %}
+  {{ site.head_inline }}
   {% endif %}
 
-  <!--
   {% seo %}
   {% if jekyll.environment == 'production' and site.google_analytics %}
-  {% include google-analytics.html %}
+    {% include google-analytics.html %}
   {% endif %}
-  -->
 </head>

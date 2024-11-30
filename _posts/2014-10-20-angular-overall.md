@@ -5,90 +5,90 @@ tags: [js]
 author_name: warmhug
 ---
 
-> [why AngularJS](http://jeffwhelpley.com/angularjs/)  -- vs --  [The reason Angular JS will fail](https://news.ycombinator.com/item?id=7522520)  
+> [why AngularJS](http://jeffwhelpley.com/angularjs/)  -- vs --  [The reason Angular JS will fail](https://news.ycombinator.com/item?id=7522520)
 > [专访AngularJS框架创始人](http://www.csdn.net/article/2013-10-08/2817118-AngularJS-Framework-Google)
 
 ## 适用业务场景
 
 I really like Angular, but I think it's best suited for single-page applications and dynamic forms (which is what I use it for). In that context, I've been very pleased with Angular and it's saved me a ton of time.
 
-It is quite possible to sprinkle a little Angular on your round trip app without ever using Ajax. 
+It is quite possible to sprinkle a little Angular on your round trip app without ever using Ajax.
 
 [Mixing Spring MVC with Angular.JS：](http://stackoverflow.com/questions/25997566/spring-mvc-as-a-rest-provider-with-angularjs-vs-jsp-velocity-freemarker-for-the)
 
 ## 项目目录组织
 
-[angular-seed](https://github.com/angular/angular-seed)、[angular-requirejs-seed](https://github.com/tnajdek/angular-requirejs-seed)  
-[不同规模app文件组织方式介绍](http://codingsmackdown.tv/blog/2013/04/19/angularjs-modules-for-great-justice/)、[示例](https://github.com/lavinjj/angularjs-modules-for-great-justice)  
-[ng-boilerplate](http://joshdmiller.github.io/ng-boilerplate/#/home)、[Scalable code organization in AngularJS](https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06)  
+[angular-seed](https://github.com/angular/angular-seed)、[angular-requirejs-seed](https://github.com/tnajdek/angular-requirejs-seed)
+[不同规模app文件组织方式介绍](http://codingsmackdown.tv/blog/2013/04/19/angularjs-modules-for-great-justice/)、[示例](https://github.com/lavinjj/angularjs-modules-for-great-justice)
+[ng-boilerplate](http://joshdmiller.github.io/ng-boilerplate/#/home)、[Scalable code organization in AngularJS](https://medium.com/opinionated-angularjs/scalable-code-organization-in-angularjs-9f01b594bf06)
 
 [AngularJS CRUD application demo](https://github.com/angular-app/angular-app)，对于较大型应用，按不同功能区块划分、组织文件，达到业务组件化目的。如下：
-    
-    -- /app  
-       |-- /admin （管理后台）  
-       |  |-- /projects  
-       |  |  |-- projects.js  内容如：  
-                  angular.module('projects', [ 'xx' ])  
-                  .config(['xProvider', function(xProvider){ ... }])  
-                  .controller('projectsCtrl', ['$scope', function($scope){ ... }])  
-       |  |  |-- xxDirective.js   
-       |  |  |-- yyDirective.js  内容如：  
-                  angular.module('projects.xx')  
-                  .directive('uniqueEmail', ["Users", function (Users) { ... }])  
-       |  |  |-- projects.tpl.html   
-       |  |  |-- projects-list.tpl.html   
-       |  |-- /users   
-       |  |  |-- users.js  
-       |  |  |-- users.tpl.html  
-       |  |-- admin.js    
-       |-- /dashboard （仪表盘）  
-       |  |-- dashboard.js    
-       |  |-- dashboard.tpl.html    
-       |-- /other （其他）  
-       |-- /app.js    
-    -- /common      （全局通用的功能js）  
-       |-- /directives   
-       |-- |-- modal.js   
-       |-- |-- crud.js     
-       |-- /services    
-       |-- |-- i18n.js   
-       |-- |-- notifications.js   
-       |-- |-- authorization.js  内容如：  
-                app.factory('auth', ['$http', function($http){  
-                    return {  
-                      getAuth: function (arg) {  
-                        var promise = $http.get(arg)  
-                        return promise  
-                      }  
-                    }  
-                }])             
-       |-- /resources （REST应用中，全局资源抽象）   
-       |-- |-- tasks.js   
-       |-- |-- users.js  内容如：  
-                angular.module('resources.users').factory('Users', ['xxResource', function (  xxResource) {  
-                  var userResource = xxResource('users');  
-                  userResource.prototype.getFullName = function () {  
-                    return this.lastName + " " + this.firstName + " (" + this.email + ")";  
-                  };  
-                  return userResource;  
-                }]);   
-    -- /assets   
-       |-- /images  
-       |-- /less  
-       |-- /libs  
-       |-- /vendor  
-    -- /test   
-       测试目录组织与上述目录一致        
 
-当某个功能controller处理内容过多时，可抽离逻辑到services块中，以尽量使controller更薄 
-    
+    -- /app
+       |-- /admin （管理后台）
+       |  |-- /projects
+       |  |  |-- projects.js  内容如：
+                  angular.module('projects', [ 'xx' ])
+                  .config(['xProvider', function(xProvider){ ... }])
+                  .controller('projectsCtrl', ['$scope', function($scope){ ... }])
+       |  |  |-- xxDirective.js
+       |  |  |-- yyDirective.js  内容如：
+                  angular.module('projects.xx')
+                  .directive('uniqueEmail', ["Users", function (Users) { ... }])
+       |  |  |-- projects.tpl.html
+       |  |  |-- projects-list.tpl.html
+       |  |-- /users
+       |  |  |-- users.js
+       |  |  |-- users.tpl.html
+       |  |-- admin.js
+       |-- /dashboard （仪表盘）
+       |  |-- dashboard.js
+       |  |-- dashboard.tpl.html
+       |-- /other （其他）
+       |-- /app.js
+    -- /common      （全局通用的功能js）
+       |-- /directives
+       |-- |-- modal.js
+       |-- |-- crud.js
+       |-- /services
+       |-- |-- i18n.js
+       |-- |-- notifications.js
+       |-- |-- authorization.js  内容如：
+                app.factory('auth', ['$http', function($http){
+                    return {
+                      getAuth: function (arg) {
+                        var promise = $http.get(arg)
+                        return promise
+                      }
+                    }
+                }])
+       |-- /resources （REST应用中，全局资源抽象）
+       |-- |-- tasks.js
+       |-- |-- users.js  内容如：
+                angular.module('resources.users').factory('Users', ['xxResource', function (  xxResource) {
+                  var userResource = xxResource('users');
+                  userResource.prototype.getFullName = function () {
+                    return this.lastName + " " + this.firstName + " (" + this.email + ")";
+                  };
+                  return userResource;
+                }]);
+    -- /assets
+       |-- /images
+       |-- /less
+       |-- /libs
+       |-- /vendor
+    -- /test
+       测试目录组织与上述目录一致
+
+当某个功能controller处理内容过多时，可抽离逻辑到services块中，以尽量使controller更薄
+
 # 入门与进阶
 
-经典入门教程：[官网首页的介绍及几个demo](https://angularjs.org/)，[官方tutorial](https://code.angularjs.org/1.2.16/docs/tutorial)与[中文翻译](http://angularjs.cn/T006)。 该教程利用git及bower等工具，分步骤有序的讲述各个点。 **通过此教程，能对angular有一个初步的、较全面的认识。**  
+经典入门教程：[官网首页的介绍及几个demo](https://angularjs.org/)，[官方tutorial](https://code.angularjs.org/1.2.16/docs/tutorial)与[中文翻译](http://angularjs.cn/T006)。 该教程利用git及bower等工具，分步骤有序的讲述各个点。 **通过此教程，能对angular有一个初步的、较全面的认识。**
 
 > 重点：
 > [angular与jQuery思维模式区别 - Think in AngularJS ](http://stackoverflow.com/questions/14994391/how-do-i-think-in-angularjs-if-i-have-a-jquery-background)、
-> [中文翻译](http://damoqiongqiu.iteye.com/blog/1926475)    
+> [中文翻译](http://damoqiongqiu.iteye.com/blog/1926475)
 
 进阶学习资源有[官方开发者文档](https://code.angularjs.org/1.2.16/docs/guide)、[中文社区开发者文档](http://angularjs.cn/T008)、[AngularJS中文社区](http://angularjs.cn/)、[angular编码指南](https://github.com/mgechev/angularjs-style-guide)。一眼看去、内容也太多了点。可根据官方推荐学习路线依次进行：
 
@@ -98,7 +98,7 @@ It is quite possible to sprinkle a little Angular on your round trip app without
 逐步进阶学习，会发现一些比较重点、比较集中的点要掌握，如：
 
 1. directive的各个配置项的含义及用法，$compile $parse的使用。
-2. scope的几种类型，父子继承关系的[理解](https://github.com/angular/angular.js/wiki/Understanding-Scopes)，一些方法如 $watch $apply $eval $destroy的使用，用作消息通信的 $on $emit $broadcast 方法的使用。    
+2. scope的几种类型，父子继承关系的[理解](https://github.com/angular/angular.js/wiki/Understanding-Scopes)，一些方法如 $watch $apply $eval $destroy的使用，用作消息通信的 $on $emit $broadcast 方法的使用。
 3. 异步加载模板、route切换时 $q promise的使用；非angular组件如何融入进来。
 4. form相关的ng-model、$render、$setValidity、$setViewValue、$parsers等使用。
 5. 框架提供的各种概念的设计以及框架本身代码的理解。
@@ -118,12 +118,12 @@ It is quite possible to sprinkle a little Angular on your round trip app without
 
 - 很多AngularJS新手把指令当成容纳各种jQuery代码的场所，简单的把DOM操作相关的代码放到指令里面，这是错误的。。 要思考用“AngularJS的方式”来实现它，当你在应用里面的任何地方进行DOM操作之前，请问问自己是不是真的必须要这样做。
 - directive里的link函数内，也应该多放业务逻辑代码，而非模板代码、模板操作，例如class变换、click事件注册等，要用 ng-class  ng-click 等指令放到模板中，而不是在link函数里 addClass 、on(‘click’)，这样便于切换模板，便于单元测试。（但这样也会加剧性能问题）
-- 实际上directive指令是HTML扩展。如果HTML无法做到你想实现的某件事情，你就自己编写一个指令，然后再去使用这个指令，好像它就是HTML的一部分一样。 
+- 实际上directive指令是HTML扩展。如果HTML无法做到你想实现的某件事情，你就自己编写一个指令，然后再去使用这个指令，好像它就是HTML的一部分一样。
 - 什么时候该用 directive、controller、services ?
     - When do we use services? Whenever we want to share data across domains.
     - Controllers should be used purely to wire up services, dependencies and other objects, and assign them to the view via scope. They’re also an excellent choice when needing to handle complex business logic in your views.
     - the majority of the application’s complexity is in the directives. They are a powerful tool for working with and modifying the DOM
-    
+
 -----
 
 # 高级
@@ -146,9 +146,9 @@ It is quite possible to sprinkle a little Angular on your round trip app without
     - use $watch in directives ； DON'T use $watch in a controller.
     - use $digest/$apply in directives and services ； DON'T use $digest/$apply in a controller.
 
-- [scope.$apply ，何时使用$apply？](http://jimhoskins.com/2012/12/17/angularjs-and-apply.html) 
+- [scope.$apply ，何时使用$apply？](http://jimhoskins.com/2012/12/17/angularjs-and-apply.html)
     - If you write any code that uses Ajax without $http, or listens for events without using Angular’s ng-* listeners, or sets a timeout without $timeout, you should wrap your code in $scope.$apply
-    
+
 - [$apply与$digest的使用区别：](http://stackoverflow.com/questions/18697745/apply-vs-digest-in-directive-testing) 使用digest性能会更好
     - scope.$digest() will only fire watchers on current scope, scope.$apply will evaluate passed function and run $rootScope.$digest().
 
@@ -171,9 +171,9 @@ It is quite possible to sprinkle a little Angular on your round trip app without
 、[transclude:'element' 使用示例](http://jsfiddle.net/codef0rmer/6yZKQ/)、[transclusion-and-scopes](http://angular-tips.com/blog/2014/03/transclusion-and-scopes/)
 
 - $observe() 与 $watch区别：
-    - $observe() is a method on the Attributes object, and as such, it can only be used to observe/watch the value change of a DOM attribute. It is only used/called inside directives. Use $observe when you need to observe/watch a DOM attribute that contains interpolation (i.e., {{}}'s). E.g., attr1="Name: {{name}}", then in a directive: attrs.$observe('attr1', ...). (If you try scope.$watch(attrs.attr1, ...) it won't work because of the {{}}s -- you'll get undefined.) Use $watch for everything else.
+    - $observe() is a method on the Attributes object, and as such, it can only be used to observe/watch the value change of a DOM attribute. It is only used/called inside directives. Use $observe when you need to observe/watch a DOM attribute that contains interpolation . E. then in a directive: attrs.$observe('attr1', ...). (If you try scope.$watch(attrs.attr1, ...) it won't work because of the -- you'll get undefined.) Use $watch for everything else.
 
-- 兄弟directive通信(sibling directive communicate): 
+- 兄弟directive通信(sibling directive communicate):
 
 #### link细节：directive所在元素的子元素何时dom ready？
 
@@ -197,9 +197,9 @@ link函数在template被克隆后调用，不包括那些发生在模板克隆�
 - directives里的 controller 和 link 该分别何时使用？
     - controller can expose an API, and link functions can interact with controllers using require.
     - use controller when you want to expose an API to other directives. Otherwise use link.
-    
-- 不要在ng-repeat元素上应用其他directive： 
-    - the transformation ng-repeat applies to the DOM is substantial. applying other directives (such as ng-show, ng-controller and others) to the same element as ng-repeat generally leads to problems 
+
+- 不要在ng-repeat元素上应用其他directive：
+    - the transformation ng-repeat applies to the DOM is substantial. applying other directives (such as ng-show, ng-controller and others) to the same element as ng-repeat generally leads to problems
 
 
 -------
@@ -213,7 +213,7 @@ link函数在template被克隆后调用，不包括那些发生在模板克隆�
 
 - module覆盖问题：
     - You should note that if you do create another module with a module name that has already been created earlier, then the old module will be overwritten – and all the registered factories etc on that module will be lost. [详细链接](http://blog.nebithi.com/angularjs-clearing-a-few-confusion-points/)
-    
+
 - module上`service、factory、provider`详解：[全面了解angular provider](http://www.garabagne.io/2014/06/08/the-life-and-times-of-the-angular-provider/)、[differences-between-providers-in-angularjs](http://blog.xebia.com/2013/09/01/differences-between-providers-in-angularjs/)、[原理及入门](http://www.mikeobrien.net/blog/angular-consts-values-services-factories-and-providers-oh-my/)、[区别、注意decorator](http://angular-tips.com/blog/2013/08/understanding-service-types/)
 
 
@@ -248,16 +248,16 @@ angular.module('myprefix_mymodule',['dep1', 'dep2']).factory('myprefix_MyService
 
 
 
-## $sce (Strict Contextual Escaping) 
+## $sce (Strict Contextual Escaping)
 
 angular1.2之后，去掉了`ng-bind-html-unsafe` 这个directive(angular1.0.x中有)，但引入了 [$sce](https://code.angularjs.org/1.2.16/docs/api/ng/service/$sce) 来对插入的HTML进行安全控制。对于这样的`<p style="color:red;" onclick="alert(1)">段落</p>`带style onclick的html，只用进行`$sce.trustAsHtml(html)`(可封装成filter)做信任处理，然后便可用`ng-bind-html`把它原样插入dom中；否则会把style、onclick过滤掉，因为angular认为他们是不安全的。
 
 更便捷地我们可以对信任的域(象html所在的域、资源文件域)加上白名单，做法是在config阶段用`$sceDelegateProvider.resourceUrlWhitelist()`添加信任列表。
-    
+
 更彻底的做法是，禁止掉`$sce`，代码示例：
 
 ```js
-    app.config(function ($sceProvider) { 
+    app.config(function ($sceProvider) {
         $sceProvider.enabled(false);  // 完全禁掉$sce
     });
 ```
@@ -269,8 +269,8 @@ angular1.2之后，去掉了`ng-bind-html-unsafe` 这个directive(angular1.0.x�
 
 ## `$httpProvider.interceptors`可能引起的问题
 
-当在所有ajax请求（get / post）中加 token 等统一的`params`时，会影响 directive 中的 templateUrl 的正确获取。因为 templateUrl 会经过`$http`服务混合$httpProvider.interceptors 插入的参数、先构造出新的url（见angular-1.2.16 中 8145行 buildUrl函数），导致模板地址与原本指定的不同，不能利用本地`script template`，而是直接发起请求远程模板、但远程不存在此模板。 
-![a](https://tfsimg.alipay.com/images/T1YWxcXjhyXXXXXXXX.png) 
+当在所有ajax请求（get / post）中加 token 等统一的`params`时，会影响 directive 中的 templateUrl 的正确获取。因为 templateUrl 会经过`$http`服务混合$httpProvider.interceptors 插入的参数、先构造出新的url（见angular-1.2.16 中 8145行 buildUrl函数），导致模板地址与原本指定的不同，不能利用本地`script template`，而是直接发起请求远程模板、但远程不存在此模板。
+![a](https://tfsimg.alipay.com/images/T1YWxcXjhyXXXXXXXX.png)
 
 
 ------
@@ -308,10 +308,10 @@ angular1.2之后，去掉了`ng-bind-html-unsafe` 这个directive(angular1.0.x�
 - [数据编辑器](http://toodledo.github.io/ADE/)
 
 
-### 各种： 
+### 各种：
 - [全面的表格](http://bazalt-cms.com/ng-table/example/1)
 、[简单的表格](http://lorenzofox3.github.io/smart-table-website/)
-- [无尽列表](http://sroze.github.io/ngInfiniteScroll/) 
+- [无尽列表](http://sroze.github.io/ngInfiniteScroll/)
 - [angular-storage](https://github.com/auth0/angular-storage)
 - [angular-loading-bar](http://chieffancypants.github.io/angular-loading-bar/)
 - [类似微博@提醒功能](http://jeff-collins.github.io/ment.io/#/examples)
@@ -325,7 +325,7 @@ angular1.2之后，去掉了`ng-bind-html-unsafe` 这个directive(angular1.0.x�
 - [angular-kendo](http://kendo-labs.github.io/angular-kendo/#/events)、[kendo-ui怎么转为angular-directive](http://modernweb.com/2014/02/03/how-kendo-ui-uses-kendo-ui-to-build-angular-directives-for-kendo-ui/)
 
 
-## lazy load 与 loader： 
+## lazy load 与 loader：
 angular原生不支持模块的lazy load，所以与require.js等loader结合使用时，会感到特别别扭，代码写法也要相应改变。具体示例如：[angular-requirejs-seed](https://github.com/tnajdek/angular-requirejs-seed)、[angularjs-lazy-loading-with-requirejs](https://github.com/ifyio/angularjs-lazy-loading-with-requirejs)
 
 相关资料参考：[1](http://www.slideshare.net/nirkaufman/angularjs-lazy-loading-techniques)
