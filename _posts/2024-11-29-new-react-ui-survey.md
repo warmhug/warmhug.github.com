@@ -15,10 +15,10 @@ author_name: warmhug
 - CSS的扩展 Extensions of CSS: [Sass](https://sass-lang.com/), [Less](https://lesscss.org/), [Tailwind](https://tailwindcss.com/), [CSS Modules](https://github.com/css-modules/css-modules).
 - 纯行为 Behavior libraries / Headless: [HeadlessUI](https://headlessui.com/), [Radix](https://www.radix-ui.com/), [React Aria](https://react-spectrum.adobe.com/react-aria/), for how things behave, not style.
 - 样式系统 Style systems: [TailwindUI](https://tailwindui.com/), [DaisyUI](https://daisyui.com/), for a baked-in look and behavior that is up to the developer.
-- 混合方式 Hybrid approaches: [ShadCN/UI](https://ui.shadcn.com/) ([awesome-shadcn-ui](https://github.com/birobirobiro/awesome-shadcn-ui)), [Chakra UI](https://v2.chakra-ui.com/), [primereact](https://primereact.org/), [KumaUI](https://www.kuma-ui.com/), [Magic UI](https://magicui.design/).
+- 混合方式 Hybrid approaches: [ShadCN/UI](https://ui.shadcn.com/) ([中文](https://www.shadcn.com.cn/) / [awesome-shadcn-ui](https://github.com/birobirobiro/awesome-shadcn-ui)), [Chakra UI](https://v2.chakra-ui.com/), [primereact](https://primereact.org/), [KumaUI](https://www.kuma-ui.com/), [Magic UI](https://magicui.design/).
 - 组件库 Component libraries: [MUI](https://mui.com/), [Ant Design](https://ant.design/), [Mantine](https://mantine.dev/), [Blueprint](https://blueprintjs.com/), [NextUI](https://nextui.org/docs/guide/introduction) [Fluent UI](https://fluent2.microsoft.design/).
 
-> 其中 根据 Best of JS 网站对 2023 年新增 star 数量的分析, shadcn/ui 以 39.5k 的新增 star 数量位居榜首, 2023 年底已超过 44K Star, 到目前为止 目前已有 75K Star, 而它是在 2023 年 5 月开源, 可见短短时间里 得到了惊人的关注度.
+> 其中 根据 Best of JS 网站对 2023 年新增 star 数量的分析, shadcn/ui 以 39.5k 的新增 star 数量位居榜首, 2023 年底已超过 44K Star. 到目前为止 目前已有 75K Star, 而它是在 2023 年 5 月开源, 可见短短时间里 得到了惊人的关注度, 仍在快速发展中.
 
 ### 怎么选?
 > 不管做什么选择, 最通俗的标准应该都是能: 立足当下/面向未来.
@@ -34,9 +34,8 @@ author_name: warmhug
 但目前需要从 antd 迁移到新的 react 组件库, 而且希望能尽量 无缝迁移, 剩下的选择就只有 MUI 或者新兴的几个组件库了. 经过对 以上列出的所有 备选库中 逐个做了 粗略了解, 并看了一些示例代码, 做以下推荐:
 
 - 基于 [ShadCN/UI](https://ui.shadcn.com/) 二次封装, 对 antd api 做 port 适配.
-  - 初始开发成本：较高 复杂场景需要额外开发.
-  - 长期维护成本：较低 几乎没有外部依赖.
-  - 灵活性: 高定制化 完全自主掌控.
+  - 初始开发成本：较高 复杂场景需要额外开发. 长期维护成本：较低 几乎没有外部依赖. 灵活性: 高定制化 完全自主掌控.
+  - 适用于: 需要高度自定义的 UI, 团队熟悉 Tailwind CSS，且愿意花时间构建设计系统。ShadCN/UI 本身 基于 Radix UI 和 Tailwind CSS，通过修改 Tailwind CSS 配置和覆盖样式来实现.
 
 - 选择 [MUI](https://mui.com/), 可靠性高, 但成本也较高.
   - Material Design UI比较难设计, Google设计语言 风格比较强烈，不易适配其他设计风格.
@@ -64,34 +63,8 @@ author_name: warmhug
 ### mui
 视频: [基于 mui v5 的业务组件库](https://www.youtube.com/watch?v=iAkIWz4C-2w)
 
-<img src="/assets/2024-11-29_mui-usage.jpg" style="width: 500px;" />
+<img src="/assets/2024-11-29_mui-usage.jpg" style="width: 800px;" />
 
 视频: [mui-base 介绍](https://www.youtube.com/watch?v=BVLBNqW4ves)
 
-<img src="/assets/2024-11-29_mui-base.jpg" style="width: 500px;" />
-
-### 参考 [ShadCN/UI](https://ui.shadcn.com/)
-
-[中文](https://www.shadcn.com.cn/)
-
-实例对比 https://codeparrot.ai/blogs/material-ui-vs-shadcn
-https://go.lightnode.com/zh/tech/shadcn-ui
-
-快速发展, 高度定制性, 现代化风格 商务稳重.
-基于 Radix UI 和 Tailwind CSS，通过修改 Tailwind CSS 配置和覆盖样式来实现。
-通过"复制粘贴"到你的项目中。这种设计方式颠覆了传统组件库的设计理念，但它的好处是更容易控制代码，决定组件的构建和样式。最大的灵活性和控制力. 考虑面向未来和先进性，如果项目注重快速定制化和紧跟现代 CSS 框架发展趋势，Shadcn/ui 是不错的选择.
-将组件代码直接添加到项目中能够实现较高的自主控制程度。我们可以根据需要添加所需的样式和交互功能。对于某些情况来说，这样做确实可以提高效率，并降低代码的耦合度。举个例子，之前我使用过一个组件库，想要监听某个组件内的滚动，但是该组件并没有提供相应的方法，因此需要修改代码变得非常麻烦。这可能也是shadcn/ui组件库受到大量关注的原因之一，它具备这种灵活性。
-另外比如 [anchor-positioning-api](https://developer.chrome.com/blog/anchor-positioning-api?hl=zh-cn) 这种新特性, 比较容易跟进.
-https://juejin.cn/post/7320525947249803283
-使用了，感觉要吐了，封装度太低了，和老板上午提需求，下午就要的精神背道而驰，完全不符合。
-基于tailwind的UI库都这样，啥事件都没封装，效率不高，除了UI灵活一些.
-
-需要高度自定义的 UI。团队熟悉 Tailwind CSS，且愿意花时间构建设计系统。
-可能作者从一开始就没有考虑为纯粹的组件使用者们提供服务，而是为组件开发者提供了维护的便利。因此，如果我们站在组件使用者的角度来看，确实容易得出和自己不适配的结论。
-Calendar 组件选用 React DayPicker；
-Chart 组件选用 Recharts；
-Table 组件选用 @tanstack/react-table；
-Form 组件选用 react-hook-form 和 zod。
-密码输入组件选用了 input-otp；
-提示组件选用了 Sonner；
-抽屉组件选用了 Vaul。
+<img src="/assets/2024-11-29_mui-base.jpg" style="width: 800px;" />

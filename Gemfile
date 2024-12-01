@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
-# source "https://rubygems.org"
-source "https://mirrors.tuna.tsinghua.edu.cn/rubygems"
+# 本地安装时候用这个
+# source "https://mirrors.tuna.tsinghua.edu.cn/rubygems"
+source "https://rubygems.org"
 gemspec
 
 gem "webrick", "~> 1.7"

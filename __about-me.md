@@ -36,6 +36,8 @@ permalink: /about
   - 非计算机专业、大二开始自学.net/js做网站、校园创业 谈20+家广告 赚一点钱。
 - born-2008: 中华民族的发源地
 
+<br>
+
 <div style="margin: 12px 0">
   <strong>结构化总结</strong>
 </div>
@@ -47,4 +49,28 @@ permalink: /about
 | 2022-至今 |  面和网: 技术规划 竞品调研 技术前瞻性 后端技术  |  整个业务owner 业务规划 业务价值  | 跨国合作  突破瓶颈  抗压  管理和协作 |
 
 <br>
+
+<div style="margin: 18px 0 -3px;">
+  <strong>简述</strong>
+</div>
+
+- 2022 ~ 2024
+  - 2024 ByteDance & P.D
+  - 2022/2023 ByteDance Slardar / Argos
+- 2019 ~ 2022
+  - 2021 worklog calendar
+  - 2019/2020 tfox / react-hooks
+  - 2019: 支付宝业务安全技术架构&策略运营等学习了解；更多思考业务和产品价值；运营&增长黑客
+- 2014 ~ 2019
+  - 2018/2019 focus biz
+  - 2017 python / cpp / AI
+  - 2015~2017: 云平台、大数据、白帽子黑客、数据安全、数据挖掘、吴恩达机器学习、C++/python
+  - 2015: java核心技术、android 开发
+  - 2015/2016 android / java / web-api / linux / php-ksweb
+  - antd antd-mobile / react typescript webpack jest node / anta
+  - 2014 Laputa / angular
+- 2012 music_app: underscore backbone less / zepto mustache seajs arale
+- 2011~2015: 前端和设计相关
+- 2011 game / jQuery / 兼职: 广告公司/方远房产
+
 <br>
